@@ -1,0 +1,23 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+{% load staticfiles %}
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Author" content="Farmehr Farhour f.farhour@gmail.com"/>
+<link href="{% static 'css/main.css' %}" rel="stylesheet">
+<title>Almost There Insights</title>
+</head>
+
+<body>
+<div class="header">
+<header>Insyt Portal{% if user.is_authenticated %}<a style="width:50px; right:40px; top:0px; position:absolute; font-size:20px; color:#FFFFFF;" href="/ClientSite/logout/">Logout</a><br />{% endif %}</header>
+<p>This is a portal for clients of Insyt to access the analytics tools and information provided by Insyt and its products</p>
+</div>
+<br />
+<br />
+<br />
+<div class="contents">
+<a href="/ClientSite/">Access Almost There Insights</a>
+</div>
+</body>
+</html>

@@ -1,0 +1,215 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+    <Name>Client</Name>
+    <RootNamespace>Client</RootNamespace>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>cd00d124-6bc7-4b19-839f-b19bafb3d926</ProjectGuid>
+    <ProjectHome>.</ProjectHome>
+    <ProjectTypeGuids>{5F0BE9CA-D677-4A4D-8806-6076C0FAAD37};{349c5851-65df-11da-9384-00065b846f21};{888888a0-9f3d-457c-b088-3a5042f75d52}</ProjectTypeGuids>
+    <StartupFile>manage.py</StartupFile>
+    <SearchPath>
+    </SearchPath>
+    <WorkingDirectory>.</WorkingDirectory>
+    <LaunchProvider>Django launcher</LaunchProvider>
+    <OutputPath>.</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="ClientSite\models.py" />
+    <Compile Include="ClientSite\admin.py" />
+    <Compile Include="ClientSite\urls.py" />
+    <Compile Include="ClientSite\tests.py" />
+    <Compile Include="ClientSite\views.py" />
+    <Compile Include="ClientSite\__init__.py" />
+    <Compile Include="Core\Functions\Geographic\__init__.py" />
+    <Compile Include="Core\Functions\Math\Shape.py" />
+    <Compile Include="Core\Functions\Math\__init__.py" />
+    <Compile Include="Core\Functions\__init__.py" />
+    <Compile Include="Core\Misc\Map_Shapes\Graph_Shape.py" />
+    <Compile Include="Core\OutputAPI\GPS_Analysis_etc.py" />
+    <Compile Include="Core\setup.py" />
+    <Compile Include="Core\src\setup.py" />
+    <Compile Include="Core\Tests\FunctionTests\GeographicTests\TestCartesian.py" />
+    <Compile Include="Core\Tests\FunctionTests\GeographicTests\TestCoordinate.py" />
+    <Compile Include="Core\Tests\FunctionTests\GeographicTests\TestShape.py" />
+    <Compile Include="Core\Tests\FunctionTests\GeographicTests\__init__.py" />
+    <Compile Include="Core\Tests\FunctionTests\MathTests\TestInterpolation.py" />
+    <Compile Include="Core\Tests\FunctionTests\MathTests\TestShape.py" />
+    <Compile Include="Core\Tests\FunctionTests\MathTests\__init__.py" />
+    <Compile Include="Core\Tests\FunctionTests\__init__.py" />
+    <Compile Include="Core\Tests\TypeTests\DatabaseTests\TestCassandraConnection.py" />
+    <Compile Include="Core\Tests\TypeTests\DatabaseTests\TestDatabaseConnection.py" />
+    <Compile Include="Core\Tests\TypeTests\DatabaseTests\TestMongoConnection.py" />
+    <Compile Include="Core\Tests\TypeTests\DatabaseTests\__init__.py" />
+    <Compile Include="Core\Tests\TypeTests\NetworkingTests\TestSocket.py" />
+    <Compile Include="Core\Tests\TypeTests\NetworkingTests\__init__.py" />
+    <Compile Include="Core\Tests\TypeTests\PredictionTests\TestPredictor.py" />
+    <Compile Include="Core\Tests\TypeTests\PredictionTests\__init__.py" />
+    <Compile Include="Core\Tests\TypeTests\TestPoint.py" />
+    <Compile Include="Core\Tests\TypeTests\__init__.py" />
+    <Compile Include="Core\Tests\__init__.py" />
+    <Compile Include="Core\Types\Area.py" />
+    <Compile Include="Core\Types\Database\Connectors\CassandraConnection.py" />
+    <Compile Include="Core\Types\Database\Connectors\MongoConnection.py" />
+    <Compile Include="Core\Types\Database\Connectors\RedisConnection.py" />
+    <Compile Include="Core\Types\Database\Connectors\__init__.py" />
+    <Compile Include="Core\Types\Database\DatabaseConnection.py" />
+    <Compile Include="Core\Types\Database\S3Connection.py" />
+    <Compile Include="Core\Types\Database\__init__.py" />
+    <Compile Include="Core\Types\Networking\Socket.py" />
+    <Compile Include="Core\Types\Networking\__init__.py" />
+    <Compile Include="Core\Types\Point.py" />
+    <Compile Include="Core\Types\Prediction\Predictor.py" />
+    <Compile Include="Core\Types\Prediction\__init__.py" />
+    <Compile Include="Core\Types\Query.py" />
+    <Compile Include="Core\Types\__init__.py" />
+    <Compile Include="Core\__init__.py" />
+    <Compile Include="manage.py" />
+    <Compile Include="Client\__init__.py" />
+    <Compile Include="Client\settings.py" />
+    <Compile Include="Client\urls.py" />
+    <Compile Include="Client\wsgi.py" />
+    <Compile Include="populate_clientsite.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebPiReference Include="https://www.microsoft.com/web/webpi/3.0/toolsproductlist.xml%3fDjango">
+      <Feed>https://www.microsoft.com/web/webpi/3.0/toolsproductlist.xml</Feed>
+      <ProductId>Django</ProductId>
+      <FriendlyName>Django 1.4</FriendlyName>
+    </WebPiReference>
+    <WebPiReference Include="https://www.microsoft.com/web/webpi/3.0/toolsproductlist.xml%3fPython27">
+      <Feed>https://www.microsoft.com/web/webpi/3.0/toolsproductlist.xml</Feed>
+      <ProductId>Python27</ProductId>
+      <FriendlyName>Python 2.7</FriendlyName>
+    </WebPiReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ClientSite\" />
+    <Folder Include="ClientSite\templates\" />
+    <Folder Include="Client\" />
+    <Folder Include="Core\" />
+    <Folder Include="Core\Functions\" />
+    <Folder Include="Core\Functions\Geographic\" />
+    <Folder Include="Core\Functions\Math\" />
+    <Folder Include="Core\Misc\" />
+    <Folder Include="Core\Misc\Map_Shapes\" />
+    <Folder Include="Core\OutputAPI\" />
+    <Folder Include="Core\src\" />
+    <Folder Include="Core\src\Functions\" />
+    <Folder Include="Core\src\Functions\Geographic\" />
+    <Folder Include="Core\src\Functions\Geographic\Coordinate\" />
+    <Folder Include="Core\src\Functions\Math\" />
+    <Folder Include="Core\src\Functions\Math\Interpolation\" />
+    <Folder Include="Core\src\ipch\" />
+    <Folder Include="Core\src\ipch\coordinate-73544ecc\" />
+    <Folder Include="Core\src\Tests\" />
+    <Folder Include="Core\src\Tests\FunctionTests\" />
+    <Folder Include="Core\src\Tests\TypeTests\" />
+    <Folder Include="Core\src\Types\" />
+    <Folder Include="Core\src\Types\Prediction\" />
+    <Folder Include="Core\src\Types\Prediction\Predictor\" />
+    <Folder Include="Core\Tests\" />
+    <Folder Include="Core\Tests\FunctionTests\" />
+    <Folder Include="Core\Tests\FunctionTests\GeographicTests\" />
+    <Folder Include="Core\Tests\FunctionTests\MathTests\" />
+    <Folder Include="Core\Tests\TypeTests\" />
+    <Folder Include="Core\Tests\TypeTests\DatabaseTests\" />
+    <Folder Include="Core\Tests\TypeTests\NetworkingTests\" />
+    <Folder Include="Core\Tests\TypeTests\PredictionTests\" />
+    <Folder Include="Core\Types\" />
+    <Folder Include="Core\Types\Database\" />
+    <Folder Include="Core\Types\Database\Connectors\" />
+    <Folder Include="Core\Types\Networking\" />
+    <Folder Include="Core\Types\Prediction\" />
+    <Folder Include="static\" />
+    <Folder Include="templates\" />
+    <Folder Include="templates\ClientSite\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ClientSite\templates\index.html" />
+    <Content Include="Core\.gitattributes" />
+    <Content Include="Core\.gitignore" />
+    <Content Include="Core\README.txt" />
+    <Content Include="Core\requirements.txt" />
+    <Content Include="Core\runtests.bat" />
+    <Content Include="Core\src\.gitignore" />
+    <Content Include="Core\src\Functions\Geographic\Coordinate\Cartesian.cpp" />
+    <Content Include="Core\src\Functions\Geographic\Coordinate\Cartesian.h" />
+    <Content Include="Core\src\Functions\Geographic\Coordinate\Coordinate.vcxproj" />
+    <Content Include="Core\src\Functions\Geographic\Coordinate\Coordinate.vcxproj.filters" />
+    <Content Include="Core\src\Functions\Geographic\Coordinate\Distance.cpp" />
+    <Content Include="Core\src\Functions\Geographic\Coordinate\Distance.h" />
+    <Content Include="Core\src\Functions\Geographic\Coordinate\main.cpp" />
+    <Content Include="Core\src\Functions\Geographic\Coordinate\Shape.cpp" />
+    <Content Include="Core\src\Functions\Geographic\Coordinate\Shape.h" />
+    <Content Include="Core\src\Functions\Geographic\Coordinate\stdafx.cpp" />
+    <Content Include="Core\src\Functions\Geographic\Coordinate\stdafx.h" />
+    <Content Include="Core\src\Functions\Math\Interpolation\Interpolation.cpp" />
+    <Content Include="Core\src\Functions\Math\Interpolation\Interpolation.h" />
+    <Content Include="Core\src\Functions\Math\Interpolation\Interpolation.vcxproj" />
+    <Content Include="Core\src\Functions\Math\Interpolation\Interpolation.vcxproj.filters" />
+    <Content Include="Core\src\Functions\Math\Interpolation\main.cpp" />
+    <Content Include="Core\src\Functions\Math\Interpolation\stdafx.cpp" />
+    <Content Include="Core\src\Functions\Math\Interpolation\stdafx.h" />
+    <Content Include="Core\src\ipch\coordinate-73544ecc\coordinate-13f03ff2.ipch" />
+    <Content Include="Core\src\Native.sln" />
+    <Content Include="Core\src\PythonExtensionBase.props" />
+    <Content Include="Core\src\Tests\FunctionTests\GeographicTests.pyproj" />
+    <Content Include="Core\src\Tests\FunctionTests\MathTests.pyproj" />
+    <Content Include="Core\src\Tests\TypeTests\PredictionTests.pyproj" />
+    <Content Include="Core\src\Types\Prediction\Predictor\main.cpp" />
+    <Content Include="Core\src\Types\Prediction\Predictor\Predictor.cpp" />
+    <Content Include="Core\src\Types\Prediction\Predictor\Predictor.h" />
+    <Content Include="Core\src\Types\Prediction\Predictor\Predictor.vcxproj" />
+    <Content Include="Core\src\Types\Prediction\Predictor\Predictor.vcxproj.filters" />
+    <Content Include="Core\src\Types\Prediction\Predictor\stdafx.cpp" />
+    <Content Include="Core\src\Types\Prediction\Predictor\stdafx.h" />
+  </ItemGroup>
+  <Import Project="$(VSToolsPath)\Python Tools\Microsoft.PythonTools.Django.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <AutoAssignPort>True</AutoAssignPort>
+          <UseCustomServer>True</UseCustomServer>
+          <CustomServerUrl>http://localhost</CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}" User="">
+        <WebProjectProperties>
+          <StartPageUrl>
+          </StartPageUrl>
+          <StartAction>CurrentPage</StartAction>
+          <AspNetDebugging>True</AspNetDebugging>
+          <SilverlightDebugging>False</SilverlightDebugging>
+          <NativeDebugging>False</NativeDebugging>
+          <SQLDebugging>False</SQLDebugging>
+          <ExternalProgram>
+          </ExternalProgram>
+          <StartExternalURL>
+          </StartExternalURL>
+          <StartCmdLineArguments>
+          </StartCmdLineArguments>
+          <StartWorkingDirectory>
+          </StartWorkingDirectory>
+          <EnableENC>False</EnableENC>
+          <AlwaysStartWebServerOnDebug>False</AlwaysStartWebServerOnDebug>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

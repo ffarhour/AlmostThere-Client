@@ -1,0 +1,17 @@
+env
+*.tlog
+*.idb
+*.opensdf
+*.sdf
+*.exp
+*.pyd
+*.ipch
+.xml
+.ropeproject/
+.coverage
+Tests/html/
+AlmostThere_Core.egg-info
+build
+dist
+.boto
+*.noseids

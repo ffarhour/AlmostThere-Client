@@ -1,0 +1,23 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+{% load staticfiles %}
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Author" content="Farmehr Farhour f.farhour@gmail.com"/>
+<link href="{% static 'css/navigation.css' %}" rel="stylesheet">
+<title>Navigation</title>
+</head>
+
+<body>
+<header>Almost There Insights {% if user.is_authenticated %}<a style="width:50px; right:40px; top:0px; position:absolute; font-size:20px; color:#FFFFFF;" href="/ClientSite/logout/">Logout</a><br />{% endif %}</header>
+<br />
+<table>
+<tr>
+	<td><a href="/ClientSite/map/"><img width="200px" height="200px" src="{% static 'img/interactivemap.JPG' %}" /><br /><h3>Interactive Maps</h3></a></td>
+    <!--<td><a href="/ClientSite/heatmap/"><img width="200px" height="200px" src="{% static 'img/heatmap.JPG' %}" /><br /><h3>Heatmap</h3></a></td>
+    <td><a href="/ClientSite/rawdata/"><img width="200px" height="200px" src="{% static 'img/img.bmp' %}" /><br /><h3>Raw Data (Tables)</h3></a></td>
+    <td><a href="/ClientSite/stats/"><img width="200px" height="200px" src="{% static 'img/img.bmp' %}" /><br /><h3>Stats</h3></a></td>-->
+</tr>
+</table>
+</body>
+</html>

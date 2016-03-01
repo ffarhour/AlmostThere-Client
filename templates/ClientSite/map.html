@@ -1,0 +1,276 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+{% load staticfiles %}
+<html>
+<head>
+	<meta name="Author" content="Farmehr Farhour f.farhour@gmail.com"/>
+  	<title>Interactive Map</title>
+    <script src='{% static "js/OpenLayers-2.13.1/OpenLayers.js" %}'></script>
+    <script src='{% static "js/OpenLayers-2.13.1/clustering.js" %}'></script>
+    <script src='{% static "js/OpenLayers-2.13.1/heatmap.js" %}'></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>-->
+	<link rel="stylesheet" href="{% static 'css/modules.css' %}" />
+	<script defer type="text/javascript">
+	    var map, mstrategy, clusters;
+        function init(){
+		
+		
+		var lat = {{lat}};
+		var long = {{long}};
+		var lat2 = {{lat2}};
+		var long2 = {{long2}};
+		var lat3 = {{lat3}};
+		var long3 = {{long3}};
+		//define map projection convertion
+		var fromProjection = new OpenLayers.Projection("EPSG:4326");   // Transform from WGS 1984
+        var toProjection   = new OpenLayers.Projection("EPSG:900913"); // to Spherical Mercator Projection
+		
+		
+		
+		//stylemaps
+		var style1 = new OpenLayers.Style({
+		'fillOpacity':0.7
+		});
+		var styleMap = new OpenLayers.StyleMap({'default': style1});
+		
+		var style2 = new OpenLayers.Style({
+                    pointRadius: "${radius}",
+                    fillColor: "#8aeeef",
+                    fillOpacity: 0.8,
+                    strokeColor: "#000",
+                    strokeWidth: "${width}",
+                    strokeOpacity: 0.8,
+					display: '',    //hide the layer
+                }, {
+                    context: {
+                        width: function(feature) {
+                            return (feature.cluster) ? 2 : 1;
+                        },
+                        radius: function(feature) {
+                            var pix = 2;
+                            if(feature.cluster) {
+                                pix = Math.min(feature.attributes.count, 7) + 2;
+                            }
+                            return pix;
+                        }
+                    }
+                });
+		
+		//define heatmap
+		var heat = new Heatmap.Layer("Heatmap");	
+		heat.setOpacity(0.5); //set opacity of the heatmap
+		
+		
+		//function to read lat long points and plot as markers and heatmap
+		var features = new Array(lat3.length)
+		function plotPoints(){
+		//sort api data	
+		for (var i=0; i<lat3.length; i++) {
+			var clustersPoint = new OpenLayers.Geometry.Point(long3[i],lat3[i]).transform( fromProjection, toProjection);
+            var clustersVector = new OpenLayers.Feature.Vector(clustersPoint); 
+			features[i] = (clustersVector);
+			features[i].style = style2;
+		};
+		
+		for (var i=0; i<lat2.length; i++) {
+			//add points to heatmap
+			var heatmapPoint = new OpenLayers.LonLat(long2[i],lat2[i]).transform(fromProjection, toProjection);
+			var heatmapSource = new Heatmap.Source(heatmapPoint,intensity=parseInt(1)); //options: intensity of the points
+			heat.addSource(heatmapSource);
+			};
+		};
+		plotPoints();			
+		
+        // define custom map event listeners
+                function mapEvent(event) {
+                    console.log(event.type);
+					//change();
+					getExtent();
+                } 
+		//create the map and add OSM layer	+ add some event listeners
+		var map = new OpenLayers.Map('map',{
+                    eventListeners: {
+                        "moveend": mapEvent,
+                        "zoomend": mapEvent,
+                    }
+                });
+        var wms = new OpenLayers.Layer.OSM();
+		//var wms = new OpenLayers.Layer.WMS( "OpenLayers WMS",
+        //    "http://vmap0.tiles.osgeo.org/wms/vmap0", {layers: 'basic'} );
+        map.addLayer(wms);
+        //map.zoomToMaxExtent();
+		
+		
+		//clusters			
+                strategy = new OpenLayers.Strategy.Cluster();
+
+                clusters = new OpenLayers.Layer.Vector("Clusters", {
+                    strategies: [strategy],
+                    styleMap: new OpenLayers.StyleMap({
+                        "default": style2,
+                        "select": {
+                            fillColor: "#ffcc66",
+                            strokeColor: "#cc6633",
+                        }
+                    })
+                });
+                
+                var select = new OpenLayers.Control.SelectFeature(
+                    clusters, {hover: true}
+                );
+                map.addControl(select);
+                select.activate();
+                clusters.events.on({"featureselected": display});
+				var distance = parseInt(10);
+        		var threshold = parseInt(5);
+				
+        
+            function display(event) {
+                var f = event.feature;
+                var el = document.getElementById("output");
+                if(f.cluster) {
+                    el.innerHTML = "cluster of " + f.attributes.count;
+                } else {
+                    el.innerHTML = "unclustered " + f.geometry;
+                }}
+         
+		
+			
+		//add positions to map (as vector layers)
+		//var vectorLayer = new OpenLayers.Layer.Vector("Overlay",{styleMap: styleMap});
+		
+		function addLayersFeatures(){
+			//add vector + cluster + heatmap layers
+			map.addLayer(heat);
+			map.addLayer(clusters);
+			
+			//add features to vectors  + clusters
+			
+			//clusters.addFeatures(features.slice(0,300));
+				//vectorLayer.addFeatures(features);
+		};
+		addLayersFeatures();
+		
+		 
+		//function to hide cluster layer features
+		function hideFeatures() {
+				console.log(features);
+				for (var i = 0; i < features.length; i++) {
+					features[i].style.defaultStyle.display = 'none';
+				}
+				strategy.recluster();
+			};
+		//hideFeatures();   
+		
+		
+		//function to show specific number of heatmap points
+		function timer(){
+			loopLength = (lat2.length)/2
+			loopLength2 = 0;
+			console.log(features[0].style.defaultStyle.display);
+			setInterval(reDraw,3000);
+			//document.getElementById("hideVector").click(hideVector);
+			function reDraw(){
+					//delete features ;
+					//var features = new Array(lat3.length);
+					//map.removeLayer(clusters);
+					if(loopLength2<((lat2.length)-100)){
+						loopLength = loopLength + 100;
+						for (var i=loopLength2; i<loopLength; i++) {
+//								var clustersPoint = new OpenLayers.Geometry.Point(long3[i],lat3[i]).transform( fromProjection, toProjection);
+//								var clustersVector = new OpenLayers.Feature.Vector(clustersPoint); 
+//								features[i] = (clustersVector);	
+								//features[i].style.defaultStyle.display = ''; //redraw the feature
+								//console.log(feature.style);
+								clusters.addFeatures(features.slice(0,loopLength));
+								
+								heat.removeSource(heatmapSource);
+								var heatmapPoint = new OpenLayers.LonLat(long2[i],lat2[i]).transform(fromProjection, toProjection);
+								var heatmapSource = new Heatmap.Source(heatmapPoint,intensity=parseInt(0)); //options: intensity of the points
+								heat.addSource(heatmapSource);
+								console.log("forloop");
+						};
+						
+						//clusters.addFeatures(features);
+						console.log("hide");
+						heat.redraw();
+						//clusters.drawFeature(features);
+						//strategy.distance=20;
+						strategy.recluster();
+						//clusters.redraw();
+						//clusters.refresh();
+						};
+					loopLength2 = loopLength;
+					
+			}
+		};
+		timer();
+		
+		
+				
+		//set auckland as centre and zoom in
+		var position = new OpenLayers.LonLat(174.7666700,-36.8666700).transform( fromProjection, toProjection);
+        var zoom = 13; 
+		if (!map.getCenter()) {
+			map.setCenter(position, zoom );
+		};
+		
+		//functions to reset cluster layer + heatmap and re-apply it 
+		
+		function change(){
+			//map.removeLayer(clusters);
+			//map.removeLayer(heat);
+			reApplyLayer();
+		};
+		
+		function reApplyLayer(){
+			//plotPoints();
+			//addLayersFeatures();
+			
+			heat.redraw();
+			clusters.redraw();
+			console.log("redraw");
+		};
+		
+		
+		//get the extent of the map (coordinates) and print in html
+		function getExtent(){
+		var theExtent = map.getExtent();
+		extent = theExtent.transform( toProjection, fromProjection);
+		document.getElementById("info").innerHTML = extent;
+		function sendPoints(x){
+			$.get("points", { 'points[]': Array(extent) });
+			};
+		sendPoints(extent);
+		};
+		
+		
+		
+		};
+		
+//		$(document).ready( function() {
+//		();
+//		$("#resetCluster").click(getPoints);
+//		 };
+      </script>
+      
+</head>
+<body onLoad="init()">
+<div class="header">
+	<header>
+    <a style="left:40px;" href="/ClientSite/">< Back to menu</a>
+    <div id="info" style="color:#FFFFFF"></div>
+     <div id="output" style="color:#FFFFFF"></div>
+     <input type="button" id="hideVector" title="change" value="reset"  />
+    {% if user.is_authenticated %}
+    	<a style="right:40px;" href="/ClientSite/logout/">Logout</a><br />
+    {% endif %}
+    </header>
+</div>
+    
+    <div style="width:100%; height:95%;" id="map"></div>
+     
+     
+<!--	<a>hello world! {{ point1 }}<br /></a>-->
+</body>
+</html>

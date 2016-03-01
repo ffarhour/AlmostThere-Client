@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Author" content="Farmehr Farhour f.farhour@gmail.com"/>
+<title>Login</title>
+<style type="text/css">
+body{
+	background:#333333;
+	color:#FFFFFF;
+	text-align:center;
+}
+h1{
+	color:#FFFFFF;
+	font-size:28px;
+	text-align:center;
+	font-family:Candara;
+	
+}
+form{
+	background:#666; 
+	backface-visibility:visible;
+	width:50%;
+	left:25%;
+	position:relative;
+	border-radius:10px;
+	padding:1%;
+}
+</style>
+</head>
+
+<body>
+<h1>Authentication</h1>
+
+        <form id="login_form" method="post" action="/ClientSite/login/">
+            {% csrf_token %}
+            <table style="text-align:center; width:100%">
+            <tr>
+            <td>ID:</td><td><input type="text" name="username" value="" size="50" /></td></tr>
+            <br />
+            <tr>
+            <td>Password:</td><td><input type="password" name="password" value="" size="50" /></td></tr>
+            </table>
+            <input type="submit" value="login" style="background:#000000; border:none; color:#FFFFFF; padding:7px; " />
+        </form>
+
+</body>
+</html>

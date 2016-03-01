@@ -1,0 +1,40 @@
+@charset "utf-8";
+/* CSS Document */
+/*Author: Farmehr Farhour f.farhour@gmail.com*/
+body, html {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+header{
+	text-align:center;
+	color:#FFFFFF;
+	background:#333;
+	padding:20px;
+	font-size:30px;
+	font-family:Candara;
+	border:none;
+	margin:0;
+}
+table{
+	text-align:center; 
+	width:100%; 
+	font-style:normal; 
+	text-decoration:none; 
+	color: #000;
+}
+tr a,td a{
+	font-style:normal; 
+	text-decoration:none; 
+	color: #333;
+	font-family:Candara;
+	cursor:pointer;
+	display:block;
+	padding-top:40px;
+	padding-bottom:40px;
+}
+tr a:hover,td a:hover{
+	background-color:#EAEAEA;
+}

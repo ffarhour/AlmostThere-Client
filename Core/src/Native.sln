@@ -1,0 +1,121 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30501.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Functions", "Functions", "{A061BD2E-9458-470F-B4F6-B8C6DFBA1203}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Geographic", "Geographic", "{EAD5513D-8402-4419-B937-B33F9E702C7F}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Coordinate", "Functions\Geographic\Coordinate\Coordinate.vcxproj", "{16C47C06-05D8-4DB9-A453-CBC5533F6032}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Types", "Types", "{769ED8B1-B108-47DA-833A-D27701416CE0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Prediction", "Prediction", "{D248F403-1B67-4782-ABCD-02C72ACFA21D}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Predictor", "Types\Prediction\Predictor\Predictor.vcxproj", "{D652FB66-FF23-4861-9C13-42987D8D2337}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{5DC17DD9-810C-4112-BEBF-0A07759D2CC1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FunctionTests", "FunctionTests", "{D924F505-F4F0-4555-8E49-9F89BF4FFB57}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TypeTests", "TypeTests", "{8557635F-E6E9-4266-898D-EF9533A9A640}"
+EndProject
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "GeographicTests", "Tests\FunctionTests\GeographicTests.pyproj", "{E34C112B-4770-489E-8224-D9494766606E}"
+EndProject
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "PredictionTests", "Tests\TypeTests\PredictionTests.pyproj", "{DFA46383-0039-41CF-A6D1-8C4B4AE69A48}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Math", "Math", "{F1819BF5-B90D-4603-8FB2-43217B5EDC67}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Interpolation", "Functions\Math\Interpolation\Interpolation.vcxproj", "{80981834-C687-445D-A242-02EAD7180E02}"
+EndProject
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "MathTests", "Tests\FunctionTests\MathTests.pyproj", "{A307545C-1CA2-4FCB-A5C0-36E9D09F3E80}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|Mixed Platforms = Debug|Mixed Platforms
+		Debug|x64 = Debug|x64
+		Release|Any CPU = Release|Any CPU
+		Release|Mixed Platforms = Release|Mixed Platforms
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{16C47C06-05D8-4DB9-A453-CBC5533F6032}.Debug|Any CPU.ActiveCfg = Debug|x64
+		{16C47C06-05D8-4DB9-A453-CBC5533F6032}.Debug|Mixed Platforms.ActiveCfg = Debug|x64
+		{16C47C06-05D8-4DB9-A453-CBC5533F6032}.Debug|Mixed Platforms.Build.0 = Debug|x64
+		{16C47C06-05D8-4DB9-A453-CBC5533F6032}.Debug|x64.ActiveCfg = Debug|x64
+		{16C47C06-05D8-4DB9-A453-CBC5533F6032}.Debug|x64.Build.0 = Debug|x64
+		{16C47C06-05D8-4DB9-A453-CBC5533F6032}.Release|Any CPU.ActiveCfg = Release|x64
+		{16C47C06-05D8-4DB9-A453-CBC5533F6032}.Release|Mixed Platforms.ActiveCfg = Release|x64
+		{16C47C06-05D8-4DB9-A453-CBC5533F6032}.Release|Mixed Platforms.Build.0 = Release|x64
+		{16C47C06-05D8-4DB9-A453-CBC5533F6032}.Release|x64.ActiveCfg = Release|x64
+		{16C47C06-05D8-4DB9-A453-CBC5533F6032}.Release|x64.Build.0 = Release|x64
+		{D652FB66-FF23-4861-9C13-42987D8D2337}.Debug|Any CPU.ActiveCfg = Debug|x64
+		{D652FB66-FF23-4861-9C13-42987D8D2337}.Debug|Mixed Platforms.ActiveCfg = Debug|x64
+		{D652FB66-FF23-4861-9C13-42987D8D2337}.Debug|Mixed Platforms.Build.0 = Debug|x64
+		{D652FB66-FF23-4861-9C13-42987D8D2337}.Debug|x64.ActiveCfg = Debug|x64
+		{D652FB66-FF23-4861-9C13-42987D8D2337}.Debug|x64.Build.0 = Debug|x64
+		{D652FB66-FF23-4861-9C13-42987D8D2337}.Release|Any CPU.ActiveCfg = Release|x64
+		{D652FB66-FF23-4861-9C13-42987D8D2337}.Release|Mixed Platforms.ActiveCfg = Release|x64
+		{D652FB66-FF23-4861-9C13-42987D8D2337}.Release|Mixed Platforms.Build.0 = Release|x64
+		{D652FB66-FF23-4861-9C13-42987D8D2337}.Release|x64.ActiveCfg = Release|x64
+		{D652FB66-FF23-4861-9C13-42987D8D2337}.Release|x64.Build.0 = Release|x64
+		{E34C112B-4770-489E-8224-D9494766606E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E34C112B-4770-489E-8224-D9494766606E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E34C112B-4770-489E-8224-D9494766606E}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{E34C112B-4770-489E-8224-D9494766606E}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{E34C112B-4770-489E-8224-D9494766606E}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{E34C112B-4770-489E-8224-D9494766606E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E34C112B-4770-489E-8224-D9494766606E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E34C112B-4770-489E-8224-D9494766606E}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{E34C112B-4770-489E-8224-D9494766606E}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{E34C112B-4770-489E-8224-D9494766606E}.Release|x64.ActiveCfg = Release|Any CPU
+		{DFA46383-0039-41CF-A6D1-8C4B4AE69A48}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DFA46383-0039-41CF-A6D1-8C4B4AE69A48}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DFA46383-0039-41CF-A6D1-8C4B4AE69A48}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{DFA46383-0039-41CF-A6D1-8C4B4AE69A48}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{DFA46383-0039-41CF-A6D1-8C4B4AE69A48}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{DFA46383-0039-41CF-A6D1-8C4B4AE69A48}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DFA46383-0039-41CF-A6D1-8C4B4AE69A48}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DFA46383-0039-41CF-A6D1-8C4B4AE69A48}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{DFA46383-0039-41CF-A6D1-8C4B4AE69A48}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{DFA46383-0039-41CF-A6D1-8C4B4AE69A48}.Release|x64.ActiveCfg = Release|Any CPU
+		{80981834-C687-445D-A242-02EAD7180E02}.Debug|Any CPU.ActiveCfg = Debug|x64
+		{80981834-C687-445D-A242-02EAD7180E02}.Debug|Mixed Platforms.ActiveCfg = Debug|x64
+		{80981834-C687-445D-A242-02EAD7180E02}.Debug|Mixed Platforms.Build.0 = Debug|x64
+		{80981834-C687-445D-A242-02EAD7180E02}.Debug|x64.ActiveCfg = Debug|x64
+		{80981834-C687-445D-A242-02EAD7180E02}.Debug|x64.Build.0 = Debug|x64
+		{80981834-C687-445D-A242-02EAD7180E02}.Release|Any CPU.ActiveCfg = Release|x64
+		{80981834-C687-445D-A242-02EAD7180E02}.Release|Mixed Platforms.ActiveCfg = Release|x64
+		{80981834-C687-445D-A242-02EAD7180E02}.Release|Mixed Platforms.Build.0 = Release|x64
+		{80981834-C687-445D-A242-02EAD7180E02}.Release|x64.ActiveCfg = Release|x64
+		{80981834-C687-445D-A242-02EAD7180E02}.Release|x64.Build.0 = Release|x64
+		{A307545C-1CA2-4FCB-A5C0-36E9D09F3E80}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A307545C-1CA2-4FCB-A5C0-36E9D09F3E80}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A307545C-1CA2-4FCB-A5C0-36E9D09F3E80}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{A307545C-1CA2-4FCB-A5C0-36E9D09F3E80}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{A307545C-1CA2-4FCB-A5C0-36E9D09F3E80}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{A307545C-1CA2-4FCB-A5C0-36E9D09F3E80}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A307545C-1CA2-4FCB-A5C0-36E9D09F3E80}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A307545C-1CA2-4FCB-A5C0-36E9D09F3E80}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{A307545C-1CA2-4FCB-A5C0-36E9D09F3E80}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{A307545C-1CA2-4FCB-A5C0-36E9D09F3E80}.Release|x64.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{EAD5513D-8402-4419-B937-B33F9E702C7F} = {A061BD2E-9458-470F-B4F6-B8C6DFBA1203}
+		{16C47C06-05D8-4DB9-A453-CBC5533F6032} = {EAD5513D-8402-4419-B937-B33F9E702C7F}
+		{D248F403-1B67-4782-ABCD-02C72ACFA21D} = {769ED8B1-B108-47DA-833A-D27701416CE0}
+		{D652FB66-FF23-4861-9C13-42987D8D2337} = {D248F403-1B67-4782-ABCD-02C72ACFA21D}
+		{D924F505-F4F0-4555-8E49-9F89BF4FFB57} = {5DC17DD9-810C-4112-BEBF-0A07759D2CC1}
+		{8557635F-E6E9-4266-898D-EF9533A9A640} = {5DC17DD9-810C-4112-BEBF-0A07759D2CC1}
+		{E34C112B-4770-489E-8224-D9494766606E} = {D924F505-F4F0-4555-8E49-9F89BF4FFB57}
+		{DFA46383-0039-41CF-A6D1-8C4B4AE69A48} = {8557635F-E6E9-4266-898D-EF9533A9A640}
+		{F1819BF5-B90D-4603-8FB2-43217B5EDC67} = {A061BD2E-9458-470F-B4F6-B8C6DFBA1203}
+		{80981834-C687-445D-A242-02EAD7180E02} = {F1819BF5-B90D-4603-8FB2-43217B5EDC67}
+		{A307545C-1CA2-4FCB-A5C0-36E9D09F3E80} = {D924F505-F4F0-4555-8E49-9F89BF4FFB57}
+	EndGlobalSection
+EndGlobal
